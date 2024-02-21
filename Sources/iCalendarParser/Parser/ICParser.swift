@@ -183,7 +183,7 @@ public struct ICParser {
             var alarm = ICAlarm()
             
             alarm.description = component.buildProperty(of: Constant.Property.description)
-            alarm.date = component.buildProperty(of: Constant.Property.trigger)
+            alarm.date = component.buildProperty(of: Constant.Property.trigger)?.date
             
             return alarm
         }

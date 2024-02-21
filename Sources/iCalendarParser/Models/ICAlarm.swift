@@ -12,9 +12,9 @@ public struct ICAlarm: ICComponentable {
     
     public var description: String?
     
-    public var date: String?
+    public var date: Date?
     
-    public init(description: String? = nil, date: String? = nil) {
+    public init(description: String? = nil, date: Date? = nil) {
         self.description = description
         self.date = date
     }
