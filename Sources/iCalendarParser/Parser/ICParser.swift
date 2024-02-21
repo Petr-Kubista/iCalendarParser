@@ -168,6 +168,10 @@ public struct ICParser {
             event.url = URL(string: component.buildProperty(of: Constant.Property.url) ?? "")
             event.uid = component.buildProperty(of: Constant.Property.uid) ?? ""
             event.recurrenceRule = component.buildProperty(of: Constant.Property.recurrenceRule)
+            
+            let alarmComponents = component.childProperties
+            
+            event.alarms = buildAlarms(from: alarmComponents)
 
             event.nonStandardProperties = component.getNonStandardProperties()
 

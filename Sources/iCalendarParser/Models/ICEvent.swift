@@ -192,6 +192,8 @@ public struct ICEvent: ICComponentable {
     /// See more in [RFC 5545](
     /// https://www.rfc-editor.org/rfc/rfc5545#section-3.8.4.6)
     public var url: URL?
+    
+    public var alarms: [ICAlarm]
 
     public init(
         attendees: [ICAttendee]? = nil,
@@ -212,7 +214,8 @@ public struct ICEvent: ICComponentable {
         summary: String? = nil,
         timeTransparency: String? = nil,
         uid: String = UUID().uuidString,
-        url: URL? = nil
+        url: URL? = nil,
+        alarms: [ICAlarm] = []
     ) {
         self.attendees = attendees
         self.classification = classification
@@ -233,6 +236,7 @@ public struct ICEvent: ICComponentable {
         self.timeTransparency = timeTransparency
         self.uid = uid
         self.url = url
+        self.alarms = alarms
     }
 }
 
