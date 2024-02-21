@@ -60,7 +60,7 @@ public struct ICParser {
         return ICalendar(
             calendarScale: calendarScale,
             events: events,
-            alarms: alarms
+            alarms: alarms,
             method: method,
             productId: prodId,
             timeZones: timeZones
