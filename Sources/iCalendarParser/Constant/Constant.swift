@@ -88,6 +88,10 @@ extension Constant {
         static let tzUrl: String = "TZURL"
         static let uid: String = "UID"
         static let url: String = "URL"
+        
+        // Alarm properties
+        static let action: String = "ACTION"
+        static let trigger: String = "TRIGGER"
     }
 
     enum ProductId {

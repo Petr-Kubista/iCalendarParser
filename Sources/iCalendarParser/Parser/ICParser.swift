@@ -47,9 +47,15 @@ public struct ICParser {
             type: .timeZone,
             from: elements
         )
+        
+        let alarmComponents = getComponents(
+            type: .alarm,
+            from: elements
+        )
 
         let events = buildEvents(from: eventComponents)
         let timeZones = buildTimeZones(from: timeZoneComponents)
+        let alarms = buildAlarms(from: alarmComponents)
 
         return ICalendar(
             calendarScale: calendarScale,
@@ -166,6 +172,19 @@ public struct ICParser {
             event.nonStandardProperties = component.getNonStandardProperties()
 
             return event
+        }
+    }
+    
+    private func buildAlarms(
+        from components: [ICComponent]
+    ) -> [ICAlarm] {
+        return components.map { component -> ICAlarm in
+            var alarm = ICAlarm()
+            
+            alarm.description = component.buildProperty(of: Constant.Property.description)
+            alarm.date = component.buildProperty(of: Constant.Property.trigger)
+            
+            return alarm
         }
     }
 

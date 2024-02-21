@@ -25,6 +25,8 @@ public struct ICalendar {
 
     /// All the event components in the object
     public var events: [ICEvent]
+    
+    public var alarms: [ICAlarm]
 
     /// iCalendar object method associated with the calendar object.
     ///
@@ -74,6 +76,7 @@ public struct ICalendar {
     public init(
         calendarScale: String? = Constant.ICalSpec.defaultCalScale,
         events: [ICEvent] = [],
+        alarms: [ICAlarm] = [],
         method: String? = nil,
         productId: ICProductIdentifier,
         timeZones: [ICTimeZone] = [],
@@ -81,6 +84,7 @@ public struct ICalendar {
     ) {
         self.calendarScale = calendarScale
         self.events = events
+        self.alarms = alarms
         self.method = method
         self.productId = productId
         self.timeZones = timeZones
@@ -92,6 +96,7 @@ extension ICalendar: Equatable {
     public static func == (lhs: ICalendar, rhs: ICalendar) -> Bool {
         lhs.calendarScale == rhs.calendarScale
         && lhs.events == rhs.events
+        && lhs.alarms == rhs.alarms
         && lhs.method == rhs.method
         && lhs.productId == rhs.productId
         && lhs.timeZones == rhs.timeZones
